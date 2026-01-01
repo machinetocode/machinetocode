@@ -13,4 +13,6 @@ jobs:
       
       - name: Generate Tetris
         uses: Readme-Workflows/recent-activity@main
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
        
