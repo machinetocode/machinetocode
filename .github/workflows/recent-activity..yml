@@ -1,16 +1,17 @@
-name: Generate Recent Activity
+name: Update GitHub Activity
 
 on:
   schedule:
-    - cron: "0 */12 * * *"
+    - cron: "0 */6 * * *"
   workflow_dispatch:
 
 jobs:
-  build:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Readme-Workflows/recent-activity@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: JamesIves/github-activity-readme@v0.3.3
+        with:
+          COMMIT_MSG: "Update recent activity"
+          MAX_LINES: 5
